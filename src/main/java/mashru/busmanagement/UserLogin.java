@@ -4,6 +4,12 @@
  */
 package mashru.busmanagement;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mashru
@@ -59,6 +65,11 @@ public class UserLogin extends javax.swing.JFrame {
         });
 
         jButton3.setText("Create Account");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Admin Login");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +133,48 @@ public class UserLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void infoMassage(String message, String title){
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String username = jTextField1.getText();
+        String password = jTextField2.getText();
+        
+        // JDBC URL, username, and password of PostgreSQL server
+        String dburl = "jdbc:postgresql://localhost:5432/bums";
+        String dbuser = "postgres";
+        String dbpassword = "postgres";
+        
+        // Prepare the SQL statement with the schema name and quotes around the schema name
+        String selectSql = "SELECT COUNT(*) FROM \"user\".user_details WHERE username = ? AND password = ?";
+        
+        try (
+            // Register PostgreSQL JDBC driver
+            Connection connection = DriverManager.getConnection(dburl, dbuser, dbpassword);
+
+            // Check if the username or email already exists
+            PreparedStatement selectStatement = connection.prepareStatement(selectSql)
+        ) {
+            // Check for existing username or email
+            selectStatement.setString(1, username);
+            selectStatement.setString(2, password);
+            ResultSet resultSet = selectStatement.executeQuery();
+            resultSet.next();
+            int count = resultSet.getInt(1);
+
+            if (count > 0) {
+                // User with the same username or email already exists
+//                infoMassage("Welcome !", "Success");
+                dispose();
+                UserControlPanel u1 = new UserControlPanel(username);
+                u1.setLocationRelativeTo(null);
+                u1.setVisible(true);
+            } else { 
+                infoMassage("Fail to ligin, try with proper username and password !", "Success");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -136,6 +187,14 @@ public class UserLogin extends javax.swing.JFrame {
         a1.setLocationRelativeTo(null);
         a1.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+        NewUser n1 = new NewUser();
+        n1.setLocationRelativeTo(null);
+        n1.setVisible(true);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
