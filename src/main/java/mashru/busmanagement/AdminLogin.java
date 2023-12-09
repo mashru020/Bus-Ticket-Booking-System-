@@ -173,7 +173,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 // User with the same username or email already exists
 //                infoMassage("Welcome !", "Success");
                 dispose();
-                AdminControlPanle a1 = new AdminControlPanle();
+                AdminControlPanle a1 = new AdminControlPanle(username);
                 a1.setLocationRelativeTo(null);
                 a1.setVisible(true);
             } else { 
