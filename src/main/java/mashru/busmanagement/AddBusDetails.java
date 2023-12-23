@@ -34,6 +34,8 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
+        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,6 +54,13 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel1.setText("Add Bus Details");
 
@@ -77,7 +86,7 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Movement:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Up", "Down"}));
 
         jLabel6.setText("Date:");
 
@@ -86,6 +95,13 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         jLabel8.setText("Price:");
 
         jLabel9.setText("Seat:");
+
+        jButton3.setText("Close");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,36 +116,38 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
                         .addGap(256, 256, 256)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(40, 40, 40)
-                                .addComponent(jButton2))
+                                .addComponent(jLabel2)
+                                .addGap(27, 27, 27)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel8))
-                                        .addGap(27, 27, 27)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                            .addComponent(jTextField5))))
-                                .addGap(69, 69, 69)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9))))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel8))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(jTextField5)
+                                    .addComponent(jTextField7))))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField4)
-                            .addComponent(jTextField6))))
+                            .addComponent(jTextField6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(400, 400, 400)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
                 .addContainerGap(316, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,18 +170,20 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(164, 164, 164))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(206, 206, 206))
         );
 
         pack();
@@ -171,9 +191,17 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String busNo = jTextField1.getText();
+        String busMoveD = (String) jComboBox1.getSelectedItem();
         String busSoruce = jTextField2.getText();
         String busDestination = jTextField3.getText();
         
+//            Date departDate = (Date) jDateChooser2.getDate();
+//            SimpleDateFormat oDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        String szDate = oDateFormat.format(departDate);
+        String szDate = jTextField7.getText();
+        String  departTimeD = jTextField4.getText();
+        String priceD = jTextField5.getText();
+        String seatD = jTextField6.getText();
         
         // JDBC URL, username, and password of PostgreSQL server
         String dburl = "jdbc:postgresql://localhost:5432/bums";
@@ -182,7 +210,7 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         
         // Prepare the SQL statement with the schema name and quotes around the schema name
         String selectSql = "SELECT COUNT(*) FROM \"bus\".bus_details WHERE bus_no = ?";
-        String insertSql = "INSERT INTO \"bus\".bus_details (bus_no, bus_source, bus_destination) VALUES (?, ?, ?)";
+        String insertSql = "INSERT INTO \"bus\".bus_details (bus_no, movement, bus_source, bus_dest, depart_date, depart_time, price, total_seat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(
             Connection connection = DriverManager.getConnection(dburl, dbuser, dbpassword);   
@@ -197,18 +225,23 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
             int count = resultSet.getInt(1);
             if (count > 0) {
                 // User with the same username or email already exists
-                infoMassage("User with the same username or email already exists!", "Error");
+                infoMassage("This bus already already exists!", "Error");
                 dispose();
-                UserLogin ln = new UserLogin();
-                ln.setLocationRelativeTo(null);
-                ln.setVisible(true);
+                AdminControlPanle a1 = new AdminControlPanle();
+                a1.setLocationRelativeTo(null);
+                a1.setVisible(true);
             } else {
                 // If no duplicate, proceed with the insertion
                 try (PreparedStatement insertStatement = connection.prepareStatement(insertSql)) {
                     // Set values for the parameters in the SQL statement
                     insertStatement.setString(1, busNo);
-                    insertStatement.setString(2, busSoruce);
-                    insertStatement.setString(3, busDestination);
+                    insertStatement.setString(2, busMoveD);
+                    insertStatement.setString(3, busSoruce);
+                    insertStatement.setString(4, busDestination);
+                    insertStatement.setString(5, szDate);
+                    insertStatement.setString(6, departTimeD);
+                    insertStatement.setString(7, priceD);
+                    insertStatement.setString(8, seatD);
                     
                     // Execute the insert statement
                     int rowsAffected = insertStatement.executeUpdate();
@@ -232,11 +265,19 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,5 +293,6 @@ public class AddBusDetails extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
