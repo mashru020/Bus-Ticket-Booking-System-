@@ -47,6 +47,8 @@ public class AdminControlPanle extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
@@ -142,6 +144,18 @@ public class AdminControlPanle extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu6.setText("Booking");
+
+        jMenuItem2.setText("Add Booking");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem2);
+
+        jMenuItem3.setText("Booking Details");
+        jMenu6.add(jMenuItem3);
+
         jMenuBar1.add(jMenu6);
 
         jMenu3.setText("Manage Admin");
@@ -219,6 +233,13 @@ public class AdminControlPanle extends javax.swing.JFrame {
         ab.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        AddBooking ab=new AddBooking(adminuser);
+        jDesktopPane1.add(ab);
+        ab.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -269,6 +290,8 @@ public class AdminControlPanle extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;

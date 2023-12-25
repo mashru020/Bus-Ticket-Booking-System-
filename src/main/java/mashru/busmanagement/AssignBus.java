@@ -197,7 +197,7 @@ public class AssignBus extends javax.swing.JInternalFrame {
 
                     // Check the result
                     if (rowsAffected > 0) {
-                        infoMessage("Bus is Assign With Employee", "Create Fresh Entry !!");
+                        infoMessage("Bus is Assign With Employee", "Success !!");
                         dispose();
                     } else {
                         System.out.println("Failed to insert data.");

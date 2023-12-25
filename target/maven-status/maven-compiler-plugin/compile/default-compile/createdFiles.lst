@@ -1,5 +1,6 @@
 mashru/busmanagement/MainScreen$1.class
 mashru/busmanagement/AdminControlPanle$2.class
+mashru/busmanagement/AddBooking$1.class
 mashru/busmanagement/AssignBus$3.class
 mashru/busmanagement/UserLogin.class
 mashru/busmanagement/AllEmployee.class
@@ -32,6 +33,7 @@ mashru/busmanagement/MainScreen$2.class
 mashru/busmanagement/AdminControlPanle$1.class
 mashru/busmanagement/UserLogin$2.class
 mashru/busmanagement/AdminControlPanle$7.class
+mashru/busmanagement/AddBooking$3.class
 mashru/busmanagement/NewUser$4.class
 mashru/busmanagement/AdminLogin$1.class
 mashru/busmanagement/AddBusDetails.class
@@ -40,13 +42,17 @@ mashru/busmanagement/MainScreen$3.class
 mashru/busmanagement/AssignBus.class
 mashru/busmanagement/MainScreen.class
 mashru/busmanagement/AssignBus$1.class
+mashru/busmanagement/AddBooking$2.class
 mashru/busmanagement/AddEmployee$3.class
+mashru/busmanagement/AddBooking.class
 mashru/busmanagement/AdminControlPanle$3.class
+mashru/busmanagement/AddBooking$4.class
 mashru/busmanagement/UserControlPanel$1.class
 mashru/busmanagement/NewUser$1.class
 mashru/busmanagement/UserLogin$5.class
 mashru/busmanagement/AdminControlPanle.class
 mashru/busmanagement/AssignBus$2.class
 mashru/busmanagement/AddBusDetails$2.class
+mashru/busmanagement/AdminControlPanle$9.class
 mashru/busmanagement/AdminControlPanle$6.class
 mashru/busmanagement/AdminLogin$4.class
