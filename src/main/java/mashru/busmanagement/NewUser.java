@@ -44,7 +44,7 @@ public class NewUser extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         email_idTF = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        webUrlTF = new javax.swing.JTextField();
+        phoneTF = new javax.swing.JTextField();
         registerBTN = new javax.swing.JButton();
         resetBTN = new javax.swing.JButton();
         signinBTN = new javax.swing.JButton();
@@ -75,7 +75,7 @@ public class NewUser extends javax.swing.JFrame {
 
         jLabel6.setText("Email Id");
 
-        jLabel7.setText("WEB URL");
+        jLabel7.setText("Phone");
 
         registerBTN.setText("Register");
         registerBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +95,10 @@ public class NewUser extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel6)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(firstnameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
@@ -106,13 +107,14 @@ public class NewUser extends javax.swing.JFrame {
                 .addGap(216, 216, 216)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(webUrlTF))
+                        .addGap(91, 91, 91)
+                        .addComponent(phoneTF, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel5)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lastnameTF)
@@ -155,7 +157,7 @@ public class NewUser extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(email_idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(webUrlTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phoneTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBTN)
@@ -186,7 +188,7 @@ public class NewUser extends javax.swing.JFrame {
         String username = usernameTF.getText();
         String password = passwordPF.getText();
         String emailId = email_idTF.getText();
-        String webUrl = webUrlTF.getText();
+        String phone = phoneTF.getText();
         
         // JDBC URL, username, and password of PostgreSQL server
         String dburl = "jdbc:postgresql://localhost:5432/bums";
@@ -195,7 +197,7 @@ public class NewUser extends javax.swing.JFrame {
     
         // Prepare the SQL statement with the schema name and quotes around the schema name
         String selectSql = "SELECT COUNT(*) FROM \"user\".user_details WHERE username = ? OR email_id = ?";
-        String insertSql = "INSERT INTO \"user\".user_details (firstname, lastname, username, password, email_id, web_url) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertSql = "INSERT INTO \"user\".user_details (firstname, lastname, username, password, email_id, phone) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (
             // Register PostgreSQL JDBC driver
@@ -227,7 +229,7 @@ public class NewUser extends javax.swing.JFrame {
                     insertStatement.setString(3, username);
                     insertStatement.setString(4, password);
                     insertStatement.setString(5, emailId);
-                    insertStatement.setString(6, webUrl);
+                    insertStatement.setString(6, phone);
 
                     // Execute the insert statement
                     int rowsAffected = insertStatement.executeUpdate();
@@ -304,11 +306,11 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField lastnameTF;
     private javax.swing.JPasswordField passwordPF;
+    private javax.swing.JTextField phoneTF;
     private javax.swing.JButton registerBTN;
     private javax.swing.JButton resetBTN;
     private javax.swing.JButton signinBTN;
     private javax.swing.JTextField usernameTF;
-    private javax.swing.JTextField webUrlTF;
     // End of variables declaration//GEN-END:variables
 
     void setLocationRelativeTo() {

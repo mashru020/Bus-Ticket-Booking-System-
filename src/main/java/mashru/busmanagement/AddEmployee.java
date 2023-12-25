@@ -166,10 +166,10 @@ public class AddEmployee extends javax.swing.JInternalFrame {
             if (count > 0) {
                 // User with the same username or email already exists
                 infoMassage("This Employee already exists!", "Error");
-                dispose();
-                UserLogin ln = new UserLogin();
-                ln.setLocationRelativeTo(null);
-                ln.setVisible(true);
+//                dispose();
+//                UserLogin ln = new UserLogin();
+//                ln.setLocationRelativeTo(null);
+//                ln.setVisible(true);
             } else {
                 // If no duplicate, proceed with the insertion
                 try (PreparedStatement insertStatement = connection.prepareStatement(insertSql)) {

@@ -17,6 +17,7 @@ mashru/busmanagement/AddBusDetails$1.class
 mashru/busmanagement/UserLogin$3.class
 mashru/busmanagement/AdminLogin$5.class
 mashru/busmanagement/AssignBus$4.class
+mashru/busmanagement/DbUtils.class
 mashru/busmanagement/AddEmployee$1.class
 mashru/busmanagement/AddBusDetails$3.class
 mashru/busmanagement/AdminControlPanle$8.class

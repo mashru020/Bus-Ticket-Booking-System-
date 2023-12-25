@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,13 +26,13 @@ import javax.swing.table.TableModel;
  *
  * @author mashru
  */
-public class AddBooking extends javax.swing.JInternalFrame {
+public final class AddBooking extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AddBooking
      */
     
-    private String luser;
+    private final String luser;
     
     public String dburl = "jdbc:postgresql://localhost:5432/bums";
     public String dbuser = "postgres";
@@ -138,6 +137,11 @@ public class AddBooking extends javax.swing.JInternalFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1.setText("Add Booking Info");
 
@@ -196,7 +200,7 @@ public class AddBooking extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Booked By", "Journey Date", "Bus No", "Seat No", "Passanger Name", "Phone Number"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
@@ -206,36 +210,39 @@ public class AddBooking extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(187, 187, 187))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,10 +328,7 @@ public class AddBooking extends javax.swing.JInternalFrame {
         String depart_time=(String) model.getValueAt(index, 5);
         String price=(String) model.getValueAt(index, 6);
         String avail_seat=(String) model.getValueAt(index, 7);
-//        int lastColumnIndex = model.getColumnCount() - 1;
-//        String avail_seat = (String) model.getValueAt(index, lastColumnIndex);
-        
-//        System.out.println(lastColumnIndex);
+
         BookingFormFrame=new JFrame();
         BookingFormPanel=new JPanel();
         gl=new GridLayout(0,4);
@@ -345,7 +349,7 @@ public class AddBooking extends javax.swing.JInternalFrame {
         l8=new JLabel("Available Seat");
         l18=new JLabel(avail_seat);
         seatnoL=new JLabel("Seat No");
-        idnoL=new JLabel("ID No.");
+        phonenoL=new JLabel("Phone No.");
         fnameL=new JLabel("Name");
         t1=new JTextField(20);
         t2=new JTextField(20);
@@ -373,7 +377,7 @@ public class AddBooking extends javax.swing.JInternalFrame {
         
         BookingFormPanel.add(seatnoL);
         BookingFormPanel.add(t1);
-        BookingFormPanel.add(idnoL);
+        BookingFormPanel.add(phonenoL);
          BookingFormPanel.add(t2);
         BookingFormPanel.add(fnameL);
          BookingFormPanel.add(t3);
@@ -383,11 +387,11 @@ public class AddBooking extends javax.swing.JInternalFrame {
         {
             String booking_user=luser;
             String seatno=t1.getText();
-            String idno=t2.getText();
+            String phoneno=t2.getText();
             String name=t3.getText();
             try(Connection connection = DriverManager.getConnection(dburl, dbuser, dbpassword)){
             Statement stat = connection.createStatement();    
-            String selectQuery = "select * from \"bus\".bus_booking where bus_no ='"+bus_no+"' and journey_date='"+depart_date+"' and booking_user='"+booking_user+"' and id_no='"+idno+"'";
+            String selectQuery = "select * from \"bus\".bus_booking where bus_no ='"+bus_no+"' and journey_date='"+depart_date+"' and seat='"+seatno+"'";
             System.out.println(selectQuery);
             ResultSet rs=stat.executeQuery(selectQuery);
          //   System.out.println(rs.next());
@@ -398,7 +402,7 @@ public class AddBooking extends javax.swing.JInternalFrame {
            }
            else
            {
-               String insertQuery= "INSERT INTO \"bus\".bus_booking (booking_user, journey_date, bus_no, seat, id_no, name) VALUES (?, ?,?,?,?,?)";
+               String insertQuery= "INSERT INTO \"bus\".bus_booking (booking_user, journey_date, bus_no, seat, passenger_name, phone_no) VALUES (?, ?,?,?,?,?)";
          
                 try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
                     // Set values for the parameters in the SQL statement
@@ -406,8 +410,8 @@ public class AddBooking extends javax.swing.JInternalFrame {
                     insertStatement.setString(2, depart_date);
                     insertStatement.setString(3, bus_no );
                     insertStatement.setString(4, seatno);
-                    insertStatement.setString(5, idno);
-                    insertStatement.setString(6, depart_date);
+                    insertStatement.setString(5, name);
+                    insertStatement.setString(6, phoneno);
 
                     // Execute the insert statement
                     int rowsAffected = insertStatement.executeUpdate();
@@ -427,14 +431,15 @@ public class AddBooking extends javax.swing.JInternalFrame {
 
                             infoMessage("Booking Done", "Alert !!");
 
-                            String selectQuery1 = "SELECT * FROM \"bus\".bus_details WHERE bus_source='"+src+"' and bus_dest='"+dest+"'";
+//                            String selectQuery1 = "SELECT * FROM \"bus\".bus_booking WHERE bus_source='"+src+"' and bus_dest='"+dest+"'";
+                            String selectQuery1 = "SELECT * FROM \"bus\".bus_booking";
                             ResultSet rs1=stat.executeQuery(selectQuery1);
 
-             //             jTable3.setModel(DbUtils.resultSetToTableModel(rs1));
-             //             jTable3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                          jTable3.setModel(DbUtils.resultSetToTableModel(rs1));
+                          jTable3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
                         }
-                        dispose();
+//                        dispose();
                     } else {
                         System.out.println("Failed to insert data.");
                     }
@@ -450,10 +455,10 @@ public class AddBooking extends javax.swing.JInternalFrame {
             
         }
     }//GEN-LAST:event_jTable2MouseClicked
-GridLayout gl;    
+    GridLayout gl;    
     public JFrame BookingFormFrame;
     public JPanel BookingFormPanel;
-    public JLabel l1,l2,l3,l4,l5,l6,l7,l8,l11,l12,l13,l14,l15,l16,l17,l18,seatnoL,idnoL,fnameL,lnameL;
+    public JLabel l1,l2,l3,l4,l5,l6,l7,l8,l11,l12,l13,l14,l15,l16,l17,l18,seatnoL,phonenoL,fnameL,lnameL;
     public JComboBox seatCB;
     public JTextField t1,t2,t3;
 
